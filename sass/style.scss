@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400&display=swap');
 
 *,
 html {
@@ -17,7 +17,7 @@ $max-width: 1200px;
 .container {
   max-width: $max-width;
   padding: 1rem;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 .text-center {
   text-align: center;
@@ -53,22 +53,22 @@ h1,
 h2,
 h3,
 h4 {
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 ul {
@@ -244,17 +244,25 @@ body {
       grid-gap: 1rem;
 
       //left container
-
       .left-container {
-        background-color: $light-color;
+        background-color: #b2bec3;
+
+        height: auto;
         .search-results {
           padding: 0.5rem;
           .search-item {
+            background-color: $light-color;
+            &:hover {
+              opacity: 0.7;
+            }
             a {
               color: $dark-color;
               .title,
               .location {
                 display: block;
+              }
+              .location {
+                font-weight: 200;
               }
             }
           }
@@ -263,29 +271,59 @@ body {
 
       //right container
       .right-container {
-        background-color: $light-color;
+        background-color: #b2bec3;
+
         .event-content {
           display: grid;
           grid-template-columns: 1fr 2fr;
           grid-gap: 1rem;
-
           padding: 1rem;
 
           // event profile
-          .event-image {
+          .event-profile {
+            background-color: $light-color;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
           }
 
-          // event detail
+          //   event-detail
           .event-detail {
-            span {
-              display: block;
+            background-color: $light-color;
+
+            .event-detail-content {
+              p {
+                font-weight: 200;
+              }
             }
-            p {
-              text-align: center;
+            // event info
+            .event-info {
+              .description-info {
+                font-weight: 200;
+              }
+            }
+          }
+        }
+
+        // artist lineup
+        .artist-lineup {
+          padding: 0.5rem;
+
+          .artist-collections {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            .artist-item {
+              background-color: $light-color;
+
+              margin: 1rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              flex: 28%;
             }
           }
         }
