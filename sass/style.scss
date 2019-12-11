@@ -1,3 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$primary-color: #0984e3;
+$secondary-color: #74b9ff;
+$light-color: #dfe6e9;
+$dark-color: #2d3436;
+$max-width: 1200px;
+
+// utils
+.container {
+  max-width: $max-width;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+.secondary-text {
+  color: $secondary-color;
+}
+.light-text {
+  color: $light-color;
+}
+.dark-text {
+  color: $dark-color;
+}
+
+.primary-color {
+  background-color: $primary-color;
+}
+.secondary-color {
+  background-color: $secondary-color;
+}
+.light-color {
+  background-color: $primary-color;
+}
+.dark-color {
+  background-color: $primary-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+// buttons
+.btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.btn-primary {
+  color: $light-color;
+  background-color: $primary-color;
+}
+
+.btn-dark {
+  color: $dark-color;
+  background-color: $light-color;
+}
+.btn-light {
+  color: $light-color;
+  background-color: $dark-color;
+}
+
+// cards
+
+.card {
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+// margins
+
+.my-1 {
+  margin: 0.5rem 0;
+}
+.my-2 {
+  margin: 1rem 0;
+}
+.my-3 {
+  margin: 1.5rem 0;
+}
+.my-4 {
+  margin: 2rem 0;
+}
+
+.mx-1 {
+  margin: 0 0.5rem;
+}
+.mx-2 {
+  margin: 0 1rem;
+}
+.mx-3 {
+  margin: 0 1.5rem;
+}
+.mx-4 {
+  margin: 0 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+.mt-2 {
+  margin-top: 1rem;
+}
+.mt-3 {
+  margin-top: 1.5rem;
+}
+.mt-4 {
+  margin-top: 2rem;
+}
+// images
+
+img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.round-img {
+  border-radius: 50%;
+}
+
+// pagination btn
+
+.pagination-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .btn {
+    margin: 0.5rem;
+  }
+}
+
 body {
-  background-color: pink;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(135deg, $secondary-color, $primary-color);
+  height: 100vh;
+}
+
+// header
+#header {
+  .logo {
+    padding: 1rem;
+  }
+}
+
+// search bar form
+
+.section {
+  &-search-bar {
+    .search-form {
+      display: flex;
+      flex-direction: row;
+      .search-input,
+      .city-input,
+      .search-btn {
+        padding: 0.7rem 0.5rem;
+        outline: none;
+        color: $dark-color;
+        border-radius: 5px;
+        border: none;
+      }
+      .search-input {
+        flex: 4;
+      }
+      .city-input {
+        margin: 0 0.5rem;
+      }
+
+      .city-input,
+      .search-btn {
+        flex: 1;
+      }
+    }
+  }
+
+  &-search-results {
+    .results-container {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-gap: 1rem;
+
+      //left container
+
+      .left-container {
+        background-color: $light-color;
+        .search-results {
+          padding: 0.5rem;
+          .search-item {
+            a {
+              color: $dark-color;
+              .title,
+              .location {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+
+      //right container
+      .right-container {
+        background-color: $light-color;
+        .event-content {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-gap: 1rem;
+
+          padding: 1rem;
+
+          // event profile
+          .event-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          // event detail
+          .event-detail {
+            span {
+              display: block;
+            }
+            p {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
 }

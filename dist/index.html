@@ -4,8 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/4aab0af21c.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./css/style.min.css" />
-    <title>Ticketmaster | Your Next Adventures</title>
+    <title>TicketDream | Your Next Adventures</title>
   </head>
-  <body></body>
+  <body>
+    <header id="header">
+      <div class="logo"><a href="#home">TicketDream</a></div>
+    </header>
+    <section class="section section-search-bar">
+      <div class="container">
+        <h2 class="text-center light-text">TicketDream</h2>
+        <form class="search-form">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for artist, venue, and events"
+          />
+          <input type="text" class="city-input" placeholder="City" />
+          <button type="submit" class="btn .btn-light btn-search">
+            Search
+          </button>
+        </form>
+      </div>
+    </section>
+    <section class="section section-search-results">
+      <div class="container results-container">
+        <div class="left-container card">
+          <ul class="search-results ">
+            <li class="search-item card my-1">
+              <a href="#">
+                <span class="title text-center">Snowta NYE Festival ...</span>
+                <span class="location text-center"
+                  >Armory - Minneapolis MN</span
+                >
+              </a>
+            </li>
+            <li class="search-item card my-1">
+              <a href="#">
+                <span class="title text-center">Snowta NYE Festival ...</span>
+                <span class="location text-center"
+                  >Armory - Minneapolis MN</span
+                >
+              </a>
+            </li>
+            <li class="search-item card my-1">
+              <a href="#">
+                <span class="title text-center">Snowta NYE Festival ...</span>
+                <span class="location text-center"
+                  >Armory - Minneapolis MN</span
+                >
+              </a>
+            </li>
+            <li class="search-item card my-1">
+              <a href="#">
+                <span class="title text-center">Snowta NYE Festival ...</span>
+                <span class="location text-center"
+                  >Armory - Minneapolis MN</span
+                >
+              </a>
+            </li>
+            <li class="search-item card my-1">
+              <a href="#">
+                <span class="title text-center">Snowta NYE Festival ...</span>
+                <span class="location text-center"
+                  >Armory - Minneapolis MN</span
+                >
+              </a>
+            </li>
+          </ul>
+          <div class="pagination-btn">
+            <button class="btn btn-light">
+              <i class="fas fa-arrow-left"></i> <span>Page 1</span>
+            </button>
+            <button class="btn btn-light">
+              <span>Page 2</span> <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="right-container ">
+          <div class="event-content">
+            <div class="event-image card">
+              <img
+                src="https://s1.ticketm.net/dam/a/2e6/6c23d561-98d7-4025-b49a-5e20544c52e6_153341_RETINA_PORTRAIT_16_9.jpg"
+                alt="event pic"
+                class="round-img"
+              />
+              <a href="#" class="btn btn-primary my-2">See Tickets</a>
+            </div>
+            <div class="event-detail card">
+              <p>
+                <span class="title mb-2 text-center ">
+                  Snowta NYE Festival - 2 Day Passes
+                </span>
+              </p>
+              <p class="location mb-2">
+                Location:
+                <span>Armory- Minneapolis MN</span>
+              </p>
+              <p class="date mb-2">Date <span>12-30-2019</span></p>
+              <p class="start-time">Start Time: <span> 18:00:00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
