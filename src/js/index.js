@@ -1,7 +1,7 @@
 import '../sass/style.scss';
 import SearchBar from './models/SearchBar';
 import * as searchBarView from './views/searchBarView';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 
 // state
 const state = {};
@@ -20,11 +20,12 @@ const searchControl = async e => {
 
     // prepare UI for results
     searchBarView.clearInput();
+    renderLoader(elements.searchResultList);
 
     try {
       // Search for events
       await state.search.getResults();
-
+      clearLoader();
       searchBarView.renderResults(state.search.results.events);
       console.log(state);
     } catch (err) {
