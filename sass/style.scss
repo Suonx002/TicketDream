@@ -356,3 +356,13 @@ body {
     }
   }
 }
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $dark-color;
+  color: $light-color;
+  div {
+    padding: 1rem;
+  }
+}
