@@ -36,6 +36,26 @@ $max-width: 1200px;
   color: $dark-color;
 }
 
+.bg-light {
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.bg-dark {
+  color: $light-color;
+  background-color: $dark-color;
+}
+
+.bg-primary-light {
+  color: $light-color;
+  background-color: $primary-color;
+}
+
+.bg-primary-dark {
+  color: $dark-color;
+  background-color: $primary-color;
+}
+
 .primary-color {
   background-color: $primary-color;
 }
@@ -251,22 +271,18 @@ body {
     .results-container {
       display: grid;
       grid-template-columns: 1fr 3fr;
-      grid-gap: 1rem;
+      grid-gap: 0.5rem;
 
       //left container
       .left-container {
-        background-color: $light-color;
-
         height: auto;
         .search-results {
           padding: 0.5rem;
           .search-item {
-            background-color: #ecf5fa;
             &:hover {
               opacity: 0.7;
             }
             a {
-              color: $dark-color;
               .title,
               .location {
                 display: block;
@@ -287,7 +303,6 @@ body {
           display: grid;
           grid-template-columns: 1fr 2fr;
           grid-gap: 1rem;
-          padding: 1rem;
 
           // event profile
           .event-profile {
@@ -317,27 +332,33 @@ body {
         // artist lineup
         .artist-lineup {
           padding: 0.5rem;
+          background-color: $dark-color;
+          h4 {
+            color: $light-color;
+          }
 
           .artist-collections {
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
             .artist-item {
+              border-radius: 5px;
               background-color: $light-color;
-
               margin: 1rem;
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
               flex: 28%;
+              img {
+                margin-top: 0.5rem;
+              }
             }
           }
         }
 
         // venue details
         .venue-detail {
-          margin: 1rem 1.5rem;
           // venue collection
           .venue-collections {
             display: grid;
