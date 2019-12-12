@@ -275,7 +275,6 @@ body {
 
       //left container
       .left-container {
-        height: auto;
         .search-results {
           padding: 0.5rem;
           .search-item {
@@ -298,22 +297,27 @@ body {
       //right container
       .right-container {
         background-color: $light-color;
+        padding: 1rem;
 
         .event-content {
           display: grid;
           grid-template-columns: 1fr 2fr;
-          grid-gap: 1rem;
-
+          padding: 1rem;
+          grid-gap: 0.5rem;
+          background-color: #eee;
           // event profile
           .event-profile {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border: 1px solid $dark-color;
           }
 
           //   event-detail
           .event-detail {
+            border: 1px solid $dark-color;
+            padding: 1rem;
             .event-detail-content {
               p {
                 font-weight: 200;
@@ -331,19 +335,20 @@ body {
 
         // artist lineup
         .artist-lineup {
-          padding: 0.5rem;
-          background-color: $dark-color;
+          padding: 1rem;
           h4 {
             color: $light-color;
           }
 
           .artist-collections {
+            background-color: #eee;
+
             display: flex;
             justify-content: space-evenly;
             flex-wrap: wrap;
             .artist-item {
               border-radius: 5px;
-              background-color: $light-color;
+              border: 1px solid $dark-color;
               margin: 1rem;
               display: flex;
               flex-direction: column;
@@ -359,14 +364,24 @@ body {
 
         // venue details
         .venue-detail {
+          h4 {
+            margin: 1rem 0;
+          }
+          padding: 1rem;
           // venue collection
           .venue-collections {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 1rem;
+            grid-gap: 0.5rem;
+            padding: 1rem;
+            background-color: #eee;
+
             .venue-item {
               text-align: center;
+
+              border: 1px solid $dark-color;
               i {
+                margin-top: 0.5rem;
                 display: block;
                 font-size: 2rem;
 
