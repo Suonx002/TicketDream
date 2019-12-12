@@ -1,2 +1,37 @@
-// require('dotenv').config()
 import '../sass/style.scss';
+import SearchBar from './models/SearchBar';
+import * as searchBarView from './views/searchBarView';
+import { elements } from './views/base';
+
+// state
+const state = {};
+
+/** SEARCH CONTROLLER **/
+const searchControl = async e => {
+  //prevent form
+  e.preventDefault();
+
+  //get search and city input from view
+  const { searchInput, cityInput } = searchBarView.getInput();
+
+  if (searchInput !== '' || cityInput !== '') {
+    // create new search object and add to state
+    state.search = new SearchBar(searchInput, cityInput);
+
+    // prepare UI for results
+    searchBarView.clearInput();
+
+    try {
+      // Search for events
+      await state.search.getResults();
+
+      searchBarView.renderResults(state.search.results.events);
+      console.log(state);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+};
+
+// event listener for submit form
+elements.searchForm.addEventListener('submit', searchControl);
