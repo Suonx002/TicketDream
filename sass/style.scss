@@ -200,7 +200,7 @@ img {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-image: linear-gradient(135deg, $secondary-color, $primary-color);
+  background-image: linear-gradient(to right, $secondary-color, $primary-color);
   height: 100vh;
   line-height: 1.5;
 }
