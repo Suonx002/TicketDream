@@ -20,7 +20,9 @@ export default class SearchBar {
         }
       }
     );
-
-    this.results = res.data._embedded;
+    // console.log(res);
+    if (res.data._embedded) {
+      this.results = res.data._embedded;
+    }
   }
 }
