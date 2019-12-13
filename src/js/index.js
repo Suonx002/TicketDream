@@ -57,3 +57,14 @@ const searchControl = async e => {
 
 // event listener for submit form
 elements.searchForm.addEventListener('submit', searchControl);
+
+// pagination button go to
+elements.paginationButton.addEventListener('click', e => {
+  // console.log(e.target.closest('.btn-pagination'));
+  const btn = e.target.closest('.btn-pagination');
+  if (btn) {
+    const goToPage = parseInt(btn.dataset.goto, 10);
+    searchBarView.clearResults();
+    searchBarView.renderResults(state.search.results.events, goToPage);
+  }
+});

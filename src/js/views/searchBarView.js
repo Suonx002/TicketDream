@@ -32,6 +32,53 @@ export const clearInput = () => {
   elements.cityInput.value = '';
 };
 
+// Pagination
+const createButton = (page, type) => `
+
+    <button class="btn btn-light btn-pagination" data-goto=${
+      type === 'left' ? page - 1 : page + 1
+    }>
+      <span>Page ${type === 'left' ? page - 1 : page + 1}</span>
+    </button>
+
+`;
+
+const renderButtons = (page, numResults, resultPerPage) => {
+  // <div class="pagination-btn">
+  //   <button class="btn btn-light">
+  //     <i class="fas fa-arrow-left"></i> <span>Page 1</span>
+  //   </button>
+  //   <button class="btn btn-light">
+  //     <span>Page 2</span> <i class="fas fa-arrow-right"></i>
+  //   </button>
+  // </div>
+  const pages = Math.ceil(numResults / resultPerPage);
+
+  let button;
+  if (page === 1 && pages > 1) {
+    //button go to next page
+    button = `
+    <div></div> 
+    ${createButton(page, 'right')}
+    `;
+  } else if (page < pages) {
+    //both buttons
+    button = `
+   ${createButton(page, 'left')} 
+   ${createButton(page, 'right')} 
+    `;
+  } else if (page === pages && pages > 1) {
+    //button go back
+    button = `
+    
+    ${createButton(page, 'left')}
+     <div></div> 
+    `;
+  }
+
+  elements.paginationButton.insertAdjacentHTML('afterbegin', button);
+};
+
 // render a single data
 const renderResult = event => {
   const markup = `
@@ -50,12 +97,18 @@ const renderResult = event => {
   elements.searchResultList.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderResults = events => {
+export const renderResults = (events, page = 2, resultPerPage = 9) => {
   //   console.log(events);
-  events.forEach(event => renderResult(event));
+  const start = (page - 1) * resultPerPage;
+  const end = page * resultPerPage;
+  events.slice(start, end).forEach(event => renderResult(event));
+
+  //render pagination buttons
+  renderButtons(page, events.length, resultPerPage);
 };
 
 //clear results
 export const clearResults = () => {
   elements.searchResultList.innerHTML = '';
+  elements.paginationButton.innerHTML = '';
 };
