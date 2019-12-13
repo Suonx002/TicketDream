@@ -83,7 +83,7 @@ const renderButtons = (page, numResults, resultPerPage) => {
 const renderResult = event => {
   const markup = `
     <li class="search-item my-1 bg-primary-light">
-        <a href="#${event.id}" class="light-text">
+        <a href="#${event.id}" class="light-text search-item-link">
         <span class="title text-center">${limitEventTitle(event.name)}</span>
         <span class="location text-center"
             >${event._embedded.venues[0].name} - ${
@@ -111,4 +111,17 @@ export const renderResults = (events, page = 2, resultPerPage = 9) => {
 export const clearResults = () => {
   elements.searchResultList.innerHTML = '';
   elements.paginationButton.innerHTML = '';
+};
+
+// highlight selected
+export const highLightSelected = id => {
+  const resultArray = Array.from(
+    document.querySelectorAll('.search-item-link')
+  );
+  resultArray.forEach(el => {
+    el.classList.remove('search-item-link-active');
+  });
+  document
+    .querySelector(`.search-item-link[href*="${id}"]`)
+    .classList.add('search-item-link-active');
 };

@@ -5,7 +5,7 @@ export default class SearchBar {
     this.query = query;
     this.city = city;
     this.proxy = 'https://cors-anywhere.herokuapp.com/';
-    this.size = '50';
+    this.size = '90';
   }
 
   async getResults() {

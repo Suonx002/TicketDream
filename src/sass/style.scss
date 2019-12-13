@@ -244,6 +244,11 @@ img {
   }
 }
 
+//highlight selected
+.search-item-link-active {
+  background-color: $light-color;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: linear-gradient(to right, $secondary-color, $primary-color);
@@ -342,6 +347,10 @@ body {
             justify-content: center;
             align-items: center;
             border: 1px solid $dark-color;
+
+            img {
+              margin-top: 1rem;
+            }
           }
 
           //   event-detail

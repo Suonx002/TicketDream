@@ -6,7 +6,8 @@ export const elements = {
   cityInput: document.querySelector('.city-input'),
   searchResultList: document.querySelector('.search-results'),
   sectionSearchResult: document.querySelector('.section-search-results'),
-  paginationButton: document.querySelector('.pagination-btn')
+  paginationButton: document.querySelector('.pagination-btn'),
+  rightContainer: document.querySelector('.right-container')
 };
 
 export const renderLoader = parent => {
