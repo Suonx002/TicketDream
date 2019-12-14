@@ -6,6 +6,7 @@ export default class SearchBar {
     this.city = city;
     this.proxy = 'https://cors-anywhere.herokuapp.com/';
     this.size = '90';
+    this.sort = 'date,asc';
   }
 
   async getResults() {
@@ -16,7 +17,8 @@ export default class SearchBar {
           keyword: this.query,
           city: this.city,
           apikey: process.env.API_KEY,
-          size: this.size
+          size: this.size,
+          sort: this.sort
         }
       }
     );

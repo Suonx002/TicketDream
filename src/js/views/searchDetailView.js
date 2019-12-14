@@ -6,42 +6,83 @@ export const clearEvent = () => {
 };
 
 //Event profile
-const eventContent = detail => `
-<!-- event content -->    
-<div class="event-content">
-    <!-- event profile -->
-    <div class="event-profile">
-        <img
-            src="${detail.images[8].url}"
-            alt="event pic"
-            class="round-img"
-        />
-        <a href="${
-          detail.url
-        }" class="btn btn-primary my-2" target="_blank">See Tickets</a>
-    </div>
-    <!-- event detail -->
-    <div class="event-detail ">
-        <h3 class="title mb-2 text-center">${detail.name}</h3>
-        <div class="event-detail-content">
-            <p class="text-center">${detail._embedded.venues[0].name} - ${
-  detail._embedded.venues[0].city.name
-} ${detail._embedded.venues[0].state.stateCode}</p>
-            <p class="text-center mt-1">
-                <span class="mx-1"> ${detail.dates.start.localDate}</span>
-                <span class="mx-1"> ${detail.dates.start.localTime}</span>
-            </p>
-        </div>
-        <!-- event info -->
-        <div class="event-info">
-            <h4 class="text-center my-2">Event Information</h4>
-            <p class="description-info">
-            ${detail.info ? detail.info : 'N/A'}
-            </p>
-        </div>
-    </div>
-</div>
-    `;
+const eventContent = detail => {
+  const day = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
+  const dayOfWeek = new Date(detail.dates.start.localDate);
+  const month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const localDate = detail.dates.start.localDate.split('-');
+  const currentDay = localDate[2];
+  const currentMonth = month[localDate[1] - 1];
+  const currentYear = localDate[0];
+
+  const localTime = detail.dates.start.localTime.split(':');
+  const hours = localTime[0];
+  const minutes = localTime[1];
+  const seconds = localTime[2];
+  let time = `${hours > 12 ? hours - 12 : hours}:${minutes}:${seconds} ${
+    hours >= 12 ? 'PM' : 'AM'
+  }`;
+
+  return `
+  <!-- event content -->    
+  <div class="event-content">
+      <!-- event profile -->
+      <div class="event-profile">
+          <img
+              src="${detail.images[8].url}"
+              alt="event pic"
+              class="round-img"
+          />
+          <a href="${
+            detail.url
+          }" class="btn btn-primary my-2" target="_blank">See Tickets</a>
+      </div>
+      <!-- event detail -->
+      <div class="event-detail ">
+          <h3 class="title mb-2 text-center">${detail.name}</h3>
+          <div class="event-detail-content">
+              <p class="text-center">${detail._embedded.venues[0].name} - ${
+    detail._embedded.venues[0].city.name
+  } ${detail._embedded.venues[0].state.stateCode}</p>
+              <p class="text-center mt-1">
+                  <span class="mx-1"> ${currentMonth} ${currentDay}, ${currentYear} </span>
+                  <span class="mx-1"> ${
+                    day[dayOfWeek.getDay() + 1]
+                  }, ${time}</span>
+              </p>
+          </div>
+          <!-- event info -->
+          <div class="event-info">
+              <h4 class="text-center my-2">Event Information</h4>
+              <p class="description-info">
+              ${detail.info ? detail.info : 'N/A'}
+              </p>
+          </div>
+      </div>
+  </div>
+      `;
+};
 
 // artist lineup
 const artistsProfile = artists => {
@@ -55,7 +96,7 @@ const artistsProfile = artists => {
                 class="round-img"
                 />
                 <p class="artist-name my-2">${artist.name}</p>
-                <a href="${artist.url}" class="btn btn-primary mb-2">More</a>
+                <a href="${artist.url}" class="btn btn-primary mb-2" target="_blank">More</a>
             </div>
         `;
   });

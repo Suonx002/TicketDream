@@ -44,14 +44,6 @@ const createButton = (page, type) => `
 `;
 
 const renderButtons = (page, numResults, resultPerPage) => {
-  // <div class="pagination-btn">
-  //   <button class="btn btn-light">
-  //     <i class="fas fa-arrow-left"></i> <span>Page 1</span>
-  //   </button>
-  //   <button class="btn btn-light">
-  //     <span>Page 2</span> <i class="fas fa-arrow-right"></i>
-  //   </button>
-  // </div>
   const pages = Math.ceil(numResults / resultPerPage);
 
   let button;
@@ -97,14 +89,16 @@ const renderResult = event => {
   elements.searchResultList.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderResults = (events, page = 2, resultPerPage = 9) => {
+export const renderResults = (events, page = 1, resultPerPage = 9) => {
   //   console.log(events);
   const start = (page - 1) * resultPerPage;
   const end = page * resultPerPage;
   events.slice(start, end).forEach(event => renderResult(event));
 
   //render pagination buttons
-  renderButtons(page, events.length, resultPerPage);
+  if (events.length > 9) {
+    renderButtons(page, events.length, resultPerPage);
+  }
 };
 
 //clear results
@@ -121,6 +115,7 @@ export const highLightSelected = id => {
   resultArray.forEach(el => {
     el.classList.remove('search-item-link-active');
   });
+
   document
     .querySelector(`.search-item-link[href*="${id}"]`)
     .classList.add('search-item-link-active');
