@@ -22,7 +22,7 @@ export default class SearchBar {
         }
       }
     );
-    console.log(res);
+    // console.log(res);
     if (res.data._embedded) {
       this.results = res.data._embedded;
     }
