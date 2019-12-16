@@ -89,7 +89,7 @@ const renderResult = event => {
   elements.searchResultList.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderResults = (events, page = 1, resultPerPage = 9) => {
+export const renderResults = (events, page = 1, resultPerPage = 5) => {
   //   console.log(events);
   const start = (page - 1) * resultPerPage;
   const end = page * resultPerPage;

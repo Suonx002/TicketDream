@@ -173,8 +173,8 @@ const venueDetail = venue => {
                   <i class="far fa-sticky-note"></i> General Rule
                   <span class="general-rule my-1">
                     ${
-                      venue.generalInfo.childRule
-                        ? venue.generalInfo.childRule
+                      venue.generalInfo.generalRule
+                        ? venue.generalInfo.generalRule
                         : ''
                     }
                   </span>
@@ -189,8 +189,6 @@ const venueDetail = venue => {
 };
 
 export const renderDetail = detail => {
-  console.log(detail);
-
   const profile = eventContent(detail);
   const artist = artistLineUp(detail._embedded.attractions);
   const venue = venueDetail(detail._embedded.venues[0]);
